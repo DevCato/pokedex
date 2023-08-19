@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_medium_6dp">6dp</dimen>
+    <dimen name="padding_medium_8dp">8dp</dimen>
+    <dimen name="padding_medium_10dp">10dp</dimen>
+    <dimen name="padding_medium_20dp">20dp</dimen>
+</resources>
