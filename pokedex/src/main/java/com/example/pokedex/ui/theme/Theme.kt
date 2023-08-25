@@ -61,7 +61,7 @@ fun MyApplicationTheme(
             window.statusBarColor = colors.background.toArgb()
 
             WindowCompat.getInsetsController(window, view)
-                .isAppearanceLightStatusBars = !darkTheme
+                .isAppearanceLightStatusBars = false
         }
     }
 }

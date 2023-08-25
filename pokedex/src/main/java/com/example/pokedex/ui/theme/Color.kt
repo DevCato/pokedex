@@ -32,3 +32,6 @@ val SurfaceVariantDark = Color(0xFF43474e)
 val OnSurfaceVariantDark = Color(0xFFc3c7cf)
 
 val circularShapeBackground = Color(0x55535353)
+
+val water = Color(0xFF5495A7)
+val watergrass = Color(0xFF679375)
