@@ -25,13 +25,19 @@ val OnErrorContainerDark = Color(0xFFffdad6)
 
 val BackgroundDark = Color(0xFF1a1c1e)
 val OnBackgroundDark = Color(0xFFe2e2e6)
-val SurfaceDark = Color(0xFF1a1c1e)
+val SurfaceDark = Color(0xFF090909)
 
 val OutlineDark = Color(0xFF8d9199)
 val SurfaceVariantDark = Color(0xFF43474e)
 val OnSurfaceVariantDark = Color(0xFFc3c7cf)
 
-val circularShapeBackground = Color(0x55535353)
+val circularShapeBackground = Color(0xFF1a1c1e)
 
 val water = Color(0xFF5495A7)
 val watergrass = Color(0xFF679375)
+val yellow = Color(0xFFEF9646)
+val blue = Color(0xFF3F91E4)
+val green = Color(0xFF66B576)
+val red = Color(0xFFE91E1E)
+
+
