@@ -32,11 +32,18 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             val pokemonList = getPokemonsUseCase.execute()
             Log.e(TAG, "onClickPokemon: $pokemonList")
-            _state.value = _state.value.copy(pokemonList = pokemonList, isLoading = false)
+            _state.value = _state.value.copy(
+                pokemonList = pokemonList,
+                isLoading = false
+            )
         }
     }
 
     fun onClickPokemon(pokemon: Pokemon) {
         _state.value = _state.value.copy(selectedPokemon = pokemon)
+    }
+
+    fun onSearchPokemon(searchText: String) {
+        _state.value = _state.value.copy(searchText = searchText)
     }
 }

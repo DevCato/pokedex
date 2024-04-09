@@ -47,7 +47,8 @@ class MainActivity : ComponentActivity() {
                 Navigation(
                     mainState = state,
                     onClickPokemon = viewModel::onClickPokemon,
-                    selectedPokemon = state.value.selectedPokemon
+                    selectedPokemon = state.value.selectedPokemon,
+                    onSearchPokemon = viewModel::onSearchPokemon
                 )
             }
         }
@@ -58,10 +59,10 @@ class MainActivity : ComponentActivity() {
 fun PrincipalFragment(
     mainState: State<MainState>,
     onClickPokemon: (Pokemon) -> Unit,
-    goToDetailPokemonFragment: () -> Unit,
+    onSearchPokemon: (String) -> Unit,
+    goToDetailPokemonFragment: () -> Unit
 ) {
     val density = LocalDensity.current
-
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -86,15 +87,16 @@ fun PrincipalFragment(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(bottom = 10.dp),
-                        placeholder = "Buscar",
                         trailingIcon = Icons.Filled.Search
-                    )
+                    ){
+                        onSearchPokemon(it.text)
+                    }
                 }
-                items(mainState.value.pokemonList.size) {
+                items(mainState.value.searchPokemonList.size) {
                     PokemonItem(
-                        pokemon = mainState.value.pokemonList[it],
+                        pokemon = mainState.value.searchPokemonList[it],
                         modifier = Modifier.clickable {
-                            onClickPokemon(mainState.value.pokemonList[it])
+                            onClickPokemon(mainState.value.searchPokemonList[it])
                             goToDetailPokemonFragment()
                         })
                 }

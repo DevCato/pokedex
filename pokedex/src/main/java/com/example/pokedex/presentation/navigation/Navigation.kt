@@ -9,23 +9,34 @@ import com.example.pokedex.domain.Pokemon
 import com.example.pokedex.presentation.detail.DetailFragment
 import com.example.pokedex.presentation.main.MainState
 import com.example.pokedex.presentation.main.PrincipalFragment
+import com.example.pokedex.presentation.splash.SplashScreen
 import com.example.pokedex.ui.theme.MyApplicationTheme
 
 @Composable
 fun Navigation(
     mainState: State<MainState>,
     onClickPokemon: (Pokemon) -> Unit,
-    selectedPokemon: Pokemon? = null
+    selectedPokemon: Pokemon? = null,
+    onSearchPokemon: (String) -> Unit
 ) {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Routes.PrincipalRoute.route) {
+    NavHost(navController = navController, startDestination = Routes.SplashRoute.route) {
+        composable(Routes.SplashRoute.route) {
+            SplashScreen(
+                navController = navController
+            )
+        }
         composable(Routes.PrincipalRoute.route) {
-            PrincipalFragment(mainState = mainState, onClickPokemon = onClickPokemon) {
+            PrincipalFragment(
+                mainState = mainState,
+                onClickPokemon = onClickPokemon,
+                onSearchPokemon = onSearchPokemon
+            ) {
                 navController.navigate(Routes.DetailRoute.route)
             }
         }
         composable(Routes.DetailRoute.route) {
-            DetailFragment(pokemon = selectedPokemon)
+            DetailFragment(pokemon = selectedPokemon, onBack = { navController.popBackStack() })
         }
     }
 }

@@ -25,9 +25,9 @@ import com.example.pokedex.ui.theme.circularShapeBackground
 @Composable
 fun TextFieldCustom(
     modifier: Modifier = Modifier,
-    onValueChange: () -> Unit = {},
     placeholder: String = "Buscar",
-    trailingIcon: ImageVector = Icons.Filled.Search
+    trailingIcon: ImageVector = Icons.Filled.Search,
+    onValueChange: (TextFieldValue) -> Unit = {}
 ) {
 
     var textState by remember { mutableStateOf(TextFieldValue()) }
@@ -46,5 +46,8 @@ fun TextFieldCustom(
         label = null,
         singleLine = true,
         placeholder = { Text(text = placeholder) },
-        onValueChange = { onValueChange() })
+        onValueChange = {
+            textState = it
+            onValueChange(it)
+        })
 }

@@ -39,7 +39,7 @@ fun PokemonItem(modifier: Modifier = Modifier, pokemon: Pokemon) {
                 start.linkTo(parent.start, margin = 10.dp)
             }
             )
-            ImageWithUrl(
+            CoilImageWithUrl(
                 imageUrl = pokemon.imageUrl,
                 modifier = Modifier
                     .constrainAs(image) {

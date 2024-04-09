@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
@@ -19,7 +20,8 @@ fun CircularShape(modifier: Modifier = Modifier, content: @Composable () -> Unit
     Box(
         modifier = modifier
             .clip(shape = CircleShape)
-            .background(circularShapeBackground)
+            .background(circularShapeBackground),
+        contentAlignment = Alignment.Center
     ) {
         content()
     }
